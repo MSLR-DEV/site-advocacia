@@ -22,114 +22,36 @@
     <link rel="icon" href="https://placehold.co/32x32/0A2342/FFFFFF?text=MR" type="image/png">
 
     <style>
-        /* Configuração da Tipografia com Tailwind */
-        body {
-            font-family: 'Merriweather', serif;
-            background-color: #F5F5F5;
-        }
-        h1, h2, h3, h4, h5, h6, .font-heading {
-            font-family: 'Montserrat', sans-serif;
-        }
-        /* Paleta de Cores Customizada */
+        body { font-family: 'Merriweather', serif; background-color: #F5F5F5; }
+        h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Montserrat', sans-serif; }
         .text-brand-primary { color: #0A2342; }
         .bg-brand-primary { background-color: #0A2342; }
         .text-brand-accent { color: #C0A172; }
         .bg-brand-accent { background-color: #C0A172; }
         .border-brand-accent { border-color: #C0A172; }
-        
-        /* Estilo para conteúdo de artigo */
-        .article-content p {
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-        .article-content h3 {
-            font-size: 1.5rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-weight: bold;
-        }
-        .article-content ul {
-            list-style-type: disc;
-            margin-left: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        /* Estilos para o Painel Admin */
-        #admin-panel, #login-view {
-            animation: fadeIn 0.5s;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .admin-section {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            margin-bottom: 2rem;
-        }
-        .admin-section h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #0A2342;
-            border-bottom: 2px solid #C0A172;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .admin-input, .admin-file-upload {
-             width: 100%;
-             padding: 0.75rem;
-             border: 1px solid #d1d5db;
-             border-radius: 0.375rem;
-             margin-top: 0.5rem;
-        }
-        .admin-file-upload {
-            padding: 0;
-            background-color: #f9fafb;
-        }
-        .admin-file-upload::file-selector-button {
-            background-color: #e5e7eb;
-            color: #374151;
-            border: none;
-            padding: 0.75rem 1rem;
-            margin-right: 1rem;
-            border-right: 1px solid #d1d5db;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        .admin-file-upload::file-selector-button:hover {
-            background-color: #d1d5db;
-        }
-        .admin-label {
-            font-weight: 600;
-            color: #374151;
-        }
-         .admin-button {
-            background-color: #0A2342;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.375rem;
-            font-weight: 700;
-            transition: background-color 0.2s;
-            cursor: pointer;
-        }
-        .admin-button:hover {
-            background-color: #1a3a63;
-        }
-        .admin-button-delete {
-            background-color: #dc2626;
-        }
-         .admin-button-delete:hover {
-            background-color: #b91c1c;
-        }
+        .article-content p { margin-bottom: 1.5rem; line-height: 1.7; }
+        .article-content h3 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; font-weight: bold; }
+        .article-content ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.5rem; }
+        #admin-panel, #login-view { animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .admin-section { background-color: white; padding: 2rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); margin-bottom: 2rem; }
+        .admin-section h3 { font-size: 1.5rem; font-weight: 700; color: #0A2342; border-bottom: 2px solid #C0A172; padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+        .admin-input, .admin-file-upload { width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.375rem; margin-top: 0.5rem; }
+        .admin-file-upload { padding: 0; background-color: #f9fafb; }
+        .admin-file-upload::file-selector-button { background-color: #e5e7eb; color: #374151; border: none; padding: 0.75rem 1rem; margin-right: 1rem; border-right: 1px solid #d1d5db; cursor: pointer; transition: background-color 0.2s; }
+        .admin-file-upload::file-selector-button:hover { background-color: #d1d5db; }
+        .admin-label { font-weight: 600; color: #374151; }
+        .admin-button { background-color: #0A2342; color: white; padding: 0.75rem 1.5rem; border-radius: 0.375rem; font-weight: 700; transition: background-color 0.2s; cursor: pointer; }
+        .admin-button:hover { background-color: #1a3a63; }
+        .admin-button-delete { background-color: #dc2626; }
+        .admin-button-delete:hover { background-color: #b91c1c; }
     </style>
 </head>
 <body class="text-gray-700 antialiased">
 
     <!-- ===== Header / Navegação ===== -->
     <header id="header" class="bg-white shadow-md sticky top-0 z-50 transition-all duration-300">
-        <div class="container mx-auto px-6 md:px-12 lg:px-[250px] py-4 flex justify-between items-center">
+        <div class="container mx-auto px-6 md:px-12 lg:px-[200px] py-4 flex justify-between items-center">
             <a href="#" id="home-link-logo" class="text-2xl font-bold text-brand-primary font-heading">
                 MR Advocacia
             </a>
@@ -146,7 +68,6 @@
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
-        <!-- Menu Mobile -->
         <div id="mobile-menu" class="hidden md:hidden bg-white">
             <a href="#sobre" class="nav-link-mobile block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">O Escritório</a>
             <a href="#areas" class="nav-link-mobile block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Áreas de Atuação</a>
@@ -157,119 +78,41 @@
     </header>
 
     <main id="main-content">
-        <!-- Container para as seções da Página Inicial -->
         <div id="home-view">
             <section id="inicio" class="relative text-white bg-brand-primary" style="background-image: url('https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=2070&auto=format&fit=crop'); background-blend-mode: overlay; background-position: center; background-size: cover; background-color: rgba(10, 35, 66, 0.85);">
-                <div class="container mx-auto px-6 md:px-12 lg:px-[250px] text-center py-32 md:py-48">
+                <div class="container mx-auto px-6 md:px-12 lg:px-[200px] text-center py-32 md:py-48">
                     <h1 class="text-4xl md:text-6xl font-bold font-heading leading-tight mb-4">Assessoria Jurídica Estratégica para Seus Desafios</h1>
                     <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">Compromisso, excelência e foco em resultados para proteger seus direitos e interesses.</p>
                     <a href="#contato" class="nav-link bg-brand-accent text-brand-primary font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition text-lg">Agende uma Consulta</a>
                 </div>
             </section>
             <section id="sobre" class="py-20 bg-white">
-                <div class="container mx-auto px-6 md:px-12 lg:px-[250px]">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold text-brand-primary font-heading">Bem-vindo à MR Advocacia</h2>
-                        <p class="text-brand-accent font-semibold mt-2">Confiança e Expertise ao seu lado</p>
-                        <div class="w-24 h-1 bg-brand-accent mx-auto mt-4"></div>
-                    </div>
+                <div class="container mx-auto px-6 md:px-12 lg:px-[200px]">
+                    <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-brand-primary font-heading">Bem-vindo à MR Advocacia</h2><p class="text-brand-accent font-semibold mt-2">Confiança e Expertise ao seu lado</p><div class="w-24 h-1 bg-brand-accent mx-auto mt-4"></div></div>
                     <div class="grid md:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <h3 class="text-2xl font-bold text-brand-primary font-heading mb-4">Nossa Filosofia</h3>
-                            <p class="mb-4">Fundada sobre os pilares da ética, transparência e dedicação integral ao cliente, a MR Advocacia nasceu com o propósito de oferecer soluções jurídicas inovadoras e eficazes. Acreditamos que cada caso é único e merece uma abordagem personalizada, combinando profundo conhecimento técnico com uma visão estratégica de negócios.</p>
-                            <p class="mb-6">Nossa missão é construir relações de confiança duradouras, atuando não apenas como advogados, mas como verdadeiros parceiros na superação dos seus desafios legais e na conquista de seus objetivos.</p>
-                            <a href="#equipe" class="nav-link font-bold text-brand-primary hover:text-brand-accent transition">Conheça nossa equipe &rarr;</a>
-                        </div>
-                        <div>
-                            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop" alt="Interior do escritório MR Advocacia" class="rounded-lg shadow-xl w-full h-auto">
-                        </div>
+                        <div><h3 class="text-2xl font-bold text-brand-primary font-heading mb-4">Nossa Filosofia</h3><p class="mb-4">Fundada sobre os pilares da ética, transparência e dedicação integral ao cliente, a MR Advocacia nasceu com o propósito de oferecer soluções jurídicas inovadoras e eficazes. Acreditamos que cada caso é único e merece uma abordagem personalizada, combinando profundo conhecimento técnico com uma visão estratégica de negócios.</p><p class="mb-6">Nossa missão é construir relações de confiança duradouras, atuando não apenas como advogados, mas como verdadeiros parceiros na superação dos seus desafios legais e na conquista de seus objetivos.</p><a href="#equipe" class="nav-link font-bold text-brand-primary hover:text-brand-accent transition">Conheça nossa equipe &rarr;</a></div>
+                        <div><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop" alt="Interior do escritório MR Advocacia" class="rounded-lg shadow-xl w-full h-auto"></div>
                     </div>
                 </div>
             </section>
             <section id="areas" class="py-20">
-                <div class="container mx-auto px-6 md:px-12 lg:px-[250px]">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold text-brand-primary font-heading">Áreas de Atuação</h2>
-                        <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Oferecemos consultoria e representação especializada em diversas áreas do direito para pessoas físicas e jurídicas.</p>
-                        <div class="w-24 h-1 bg-brand-accent mx-auto mt-4"></div>
-                    </div>
-                    <div id="areas-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-                </div>
+                <div class="container mx-auto px-6 md:px-12 lg:px-[200px]"><div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-brand-primary font-heading">Áreas de Atuação</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">Oferecemos consultoria e representação especializada em diversas áreas do direito para pessoas físicas e jurídicas.</p><div class="w-24 h-1 bg-brand-accent mx-auto mt-4"></div></div><div id="areas-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div></div>
             </section>
             <section id="depoimentos" class="py-20 bg-brand-primary text-white">
-                <div class="container mx-auto px-6 md:px-12 lg:px-[250px]">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold font-heading">O que Nossos Clientes Dizem</h2>
-                        <div class="w-24 h-1 bg-brand-accent mx-auto mt-4"></div>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-12">
-                         <div class="bg-white bg-opacity-10 p-8 rounded-lg">
-                            <p class="italic mb-4">"A equipe da MR Advocacia foi fundamental para o sucesso da nossa negociação. Profissionalismo e atenção aos detalhes do início ao fim."</p>
-                            <p class="font-bold font-heading text-brand-accent">João D., CEO da Empresa X</p>
-                        </div>
-                        <div class="bg-white bg-opacity-10 p-8 rounded-lg">
-                            <p class="italic mb-4">"Encontrei a segurança e o suporte que precisava em um momento delicado. Serei eternamente grata pela condução do meu caso."</p>
-                            <p class="font-bold font-heading text-brand-accent">Maria S., Cliente</p>
-                        </div>
-                    </div>
+                <div class="container mx-auto px-6 md:px-12 lg:px-[200px]"><div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold font-heading">O que Nossos Clientes Dizem</h2><div class="w-24 h-1 bg-brand-accent mx-auto mt-4"></div></div>
+                    <div class="grid md:grid-cols-2 gap-12"><div class="bg-white bg-opacity-10 p-8 rounded-lg"><p class="italic mb-4">"A equipe da MR Advocacia foi fundamental para o sucesso da nossa negociação. Profissionalismo e atenção aos detalhes do início ao fim."</p><p class="font-bold font-heading text-brand-accent">João D., CEO da Empresa X</p></div><div class="bg-white bg-opacity-10 p-8 rounded-lg"><p class="italic mb-4">"Encontrei a segurança e o suporte que precisava em um momento delicado. Serei eternamente grata pela condução do meu caso."</p><p class="font-bold font-heading text-brand-accent">Maria S., Cliente</p></div></div>
                 </div>
             </section>
             <section id="equipe" class="py-20 bg-white">
-                <div class="container mx-auto px-6 md:px-12 lg:px-[250px]">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold text-brand-primary font-heading">Conheça Nossos Advogados</h2>
-                        <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Uma equipe de especialistas dedicados a encontrar as melhores soluções para você.</p>
-                        <div class="w-24 h-1 bg-brand-accent mx-auto mt-4"></div>
-                    </div>
-                    <div id="team-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-center"></div>
-                </div>
+                <div class="container mx-auto px-6 md:px-12 lg:px-[200px]"><div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-brand-primary font-heading">Conheça Nossos Advogados</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">Uma equipe de especialistas dedicados a encontrar as melhores soluções para você.</p><div class="w-24 h-1 bg-brand-accent mx-auto mt-4"></div></div><div id="team-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-center"></div></div>
             </section>
             <section id="blog" class="py-20">
-                <div class="container mx-auto px-6 md:px-12 lg:px-[250px]">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold text-brand-primary font-heading">Blog & Artigos</h2>
-                        <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Mantenha-se informado sobre seus direitos com artigos claros e objetivos.</p>
-                        <div class="w-24 h-1 bg-brand-accent mx-auto mt-4"></div>
-                    </div>
-                    <div id="blog-preview-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-                    <div class="text-center mt-12">
-                        <button id="view-all-posts-btn" class="bg-brand-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition">Ver todos os artigos</button>
-                    </div>
-                </div>
+                <div class="container mx-auto px-6 md:px-12 lg:px-[200px]"><div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-brand-primary font-heading">Blog & Artigos</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">Mantenha-se informado sobre seus direitos com artigos claros e objetivos.</p><div class="w-24 h-1 bg-brand-accent mx-auto mt-4"></div></div><div id="blog-preview-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div><div class="text-center mt-12"><button id="view-all-posts-btn" class="bg-brand-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition">Ver todos os artigos</button></div></div>
             </section>
             <section id="contato" class="py-20 bg-white">
-                <div class="container mx-auto px-6 md:px-12 lg:px-[250px]">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold text-brand-primary font-heading">Entre em Contato</h2>
-                        <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Estamos prontos para ouvir você. Envie sua mensagem ou visite nosso escritório.</p>
-                        <div class="w-24 h-1 bg-brand-accent mx-auto mt-4"></div>
-                    </div>
-                    <div class="grid lg:grid-cols-2 gap-12">
-                        <div id="contact-info-container" class="space-y-6"></div>
-                        <form action="#" method="POST" class="space-y-4">
-                            <div>
-                                <label for="name" class="sr-only">Nome</label>
-                                <input type="text" name="name" id="name" required placeholder="Seu Nome Completo" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-accent">
-                            </div>
-                            <div>
-                                <label for="email" class="sr-only">E-mail</label>
-                                <input type="email" name="email" id="email" required placeholder="Seu Melhor E-mail" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-accent">
-                            </div>
-                            <div>
-                                <label for="phone" class="sr-only">Telefone</label>
-                                <input type="tel" name="phone" id="phone" placeholder="Seu Telefone (Opcional)" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-accent">
-                            </div>
-                            <div>
-                                <label for="message" class="sr-only">Mensagem</label>
-                                <textarea name="message" id="message" rows="5" required placeholder="Como podemos ajudar?" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-accent"></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-brand-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-opacity-90 transition-colors">Enviar Mensagem</button>
-                        </form>
-                    </div>
-                     <div class="mt-16">
-                         <h3 class="text-xl font-bold font-heading text-brand-primary mb-4 text-center">Nossa Localização</h3>
-                        <div id="map-container"></div>
-                    </div>
+                <div class="container mx-auto px-6 md:px-12 lg:px-[200px]"><div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-brand-primary font-heading">Entre em Contato</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">Estamos prontos para ouvir você. Envie sua mensagem ou visite nosso escritório.</p><div class="w-24 h-1 bg-brand-accent mx-auto mt-4"></div></div>
+                    <div class="grid lg:grid-cols-2 gap-12"><div id="contact-info-container" class="space-y-6"></div><form action="#" method="POST" class="space-y-4"><div><label for="name" class="sr-only">Nome</label><input type="text" name="name" id="name" required placeholder="Seu Nome Completo" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-accent"></div><div><label for="email" class="sr-only">E-mail</label><input type="email" name="email" id="email" required placeholder="Seu Melhor E-mail" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-accent"></div><div><label for="phone" class="sr-only">Telefone</label><input type="tel" name="phone" id="phone" placeholder="Seu Telefone (Opcional)" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-accent"></div><div><label for="message" class="sr-only">Mensagem</label><textarea name="message" id="message" rows="5" required placeholder="Como podemos ajudar?" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-accent"></textarea></div><button type="submit" class="w-full bg-brand-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-opacity-90 transition-colors">Enviar Mensagem</button></form></div>
+                     <div class="mt-16"><h3 class="text-xl font-bold font-heading text-brand-primary mb-4 text-center">Nossa Localização</h3><div id="map-container"></div></div>
                 </div>
             </section>
         </div>
@@ -286,29 +129,11 @@
 
     <!-- ===== Footer ===== -->
     <footer class="bg-brand-primary text-white">
-        <div class="container mx-auto px-6 md:px-12 lg:px-[250px] py-12">
+        <div class="container mx-auto px-6 md:px-12 lg:px-[200px] py-12">
             <div class="grid md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold font-heading mb-4">MR Advocacia</h3>
-                    <p class="text-gray-400 text-sm">Assessoria jurídica estratégica para proteger seus interesses e alcançar seus objetivos.</p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold font-heading mb-4">Links Rápidos</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#sobre" class="nav-link text-gray-300 hover:text-white transition">O Escritório</a></li>
-                        <li><a href="#areas" class="nav-link text-gray-300 hover:text-white transition">Áreas de Atuação</a></li>
-                        <li><a href="#equipe" class="nav-link text-gray-300 hover:text-white transition">Equipe</a></li>
-                        <li><a href="#contato" class="nav-link text-gray-300 hover:text-white transition">Contato</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold font-heading mb-4">Siga-nos</h3>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-300 hover:text-white transition"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
-                        <a href="#" class="text-gray-300 hover:text-white transition"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg></a>
-                        <a href="#" class="text-gray-300 hover:text-white transition"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H6.329A5.332 5.332 0 001 6.329v11.342A5.332 5.332 0 006.329 23h11.339A5.332 5.332 0 0023 17.671V6.329A5.332 5.332 0 0017.668 1z" clip-rule="evenodd" /></svg></a>
-                    </div>
-                </div>
+                <div><h3 class="text-xl font-bold font-heading mb-4">MR Advocacia</h3><p class="text-gray-400 text-sm">Assessoria jurídica estratégica para proteger seus interesses e alcançar seus objetivos.</p></div>
+                <div><h3 class="text-lg font-bold font-heading mb-4">Links Rápidos</h3><ul class="space-y-2 text-sm"><li><a href="#sobre" class="nav-link text-gray-300 hover:text-white transition">O Escritório</a></li><li><a href="#areas" class="nav-link text-gray-300 hover:text-white transition">Áreas de Atuação</a></li><li><a href="#equipe" class="nav-link text-gray-300 hover:text-white transition">Equipe</a></li><li><a href="#contato" class="nav-link text-gray-300 hover:text-white transition">Contato</a></li></ul></div>
+                <div><h3 class="text-lg font-bold font-heading mb-4">Siga-nos</h3><div class="flex space-x-4"><a href="#" class="text-gray-300 hover:text-white transition"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a><a href="#" class="text-gray-300 hover:text-white transition"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg></a><a href="#" class="text-gray-300 hover:text-white transition"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H6.329A5.332 5.332 0 001 6.329v11.342A5.332 5.332 0 006.329 23h11.339A5.332 5.332 0 0023 17.671V6.329A5.332 5.332 0 0017.668 1z" clip-rule="evenodd" /></svg></a></div></div>
             </div>
             <div class="mt-8 pt-8 border-t border-gray-700 text-center text-sm text-gray-400">
                 <p>&copy; 2024 MR Advocacia. Todos os direitos reservados.</p>
@@ -325,462 +150,274 @@
         <button id="accept-cookies" class="bg-brand-accent text-brand-primary font-bold py-1 px-4 rounded-md hover:bg-opacity-90 transition">Entendi</button>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // =================================================================
-            // DADOS E CONFIGURAÇÕES GERAIS DO SITE
-            // =================================================================
-            const ADMIN_PASSWORD = 'admin'; // Altere a senha do painel aqui
-            const STORAGE_KEY = 'mrAdvocaciaData';
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+        import { getFirestore, doc, getDoc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+        
+        const ADMIN_PASSWORD = 'admin';
 
-            // Dados padrão do site. Serão usados se não houver nada salvo.
-            const defaultSiteData = {
-                contact: {
-                    phone: '(11) 99999-8888',
-                    phoneLink: 'tel:+5511999998888',
-                    whatsappLink: 'https://wa.me/5511999998888?text=Olá!%20Visitei%20o%20site%20da%20MR%20Advocacia%20e%20gostaria%20de%20mais%20informações.',
-                    email: 'contato@mradvocacia.com.br',
-                    address: 'Rua Exemplo, 123 - Sala 45<br>Bairro, Cidade - UF, 12345-678',
-                    hours: 'Segunda a Sexta: 9:00 - 18:00',
-                    mapIframe: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197512702228!2d-46.656571584406!3d-23.56133986749968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0x202156515449a2a9!2sMASP%20-%20Museu%20de%20Arte%20de%20S%C3%A3o%20Paulo%20Assis%20Chateaubriand!5e0!3m2!1spt-BR!2sbr!4v1686411488950!5m2!1spt-BR!2sbr'
-                },
-                team: [
-                    { id: 1, name: 'Dr. Mateus Rocha', title: 'Sócio Fundador', oab: 'OAB/UF 123.456', specialty: 'Especialista em Direito Empresarial e Contratos.', imageUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1887&auto=format&fit=crop' },
-                    { id: 2, name: 'Dra. Carolina Mendes', title: 'Sócia', oab: 'OAB/UF 123.457', specialty: 'Especialista em Direito de Família e Sucessões.', imageUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888&auto=format&fit=crop' },
-                    { id: 3, name: 'Dr. Lucas Faria', title: 'Associado', oab: 'OAB/UF 123.458', specialty: 'Especialista em Direito Tributário e Contencioso.', imageUrl: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1887&auto=format&fit=crop' }
-                ],
-                areas: [
-                    { id: 1, title: 'Direito Empresarial', description: 'Assessoria completa para empresas, desde a constituição até a dissolução, incluindo contratos, M&A e compliance.', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>' },
-                    { id: 2, title: 'Direito Tributário', description: 'Planejamento tributário, contencioso administrativo e judicial, e recuperação de créditos fiscais.', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>' },
-                    { id: 3, title: 'Direito de Família', description: 'Atuação em divórcios, inventários, partilha de bens, guarda de filhos e planejamento sucessório.', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>' }
-                ],
-                posts: [
-                     { id: 1, title: 'A Importância de um Contrato Social bem Estruturado', date: '10 de Junho, 2025', category: 'Direito Empresarial', imageUrl: 'https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=1932&auto=format&fit=crop', summary: 'Entenda por que o Contrato Social é o pilar de qualquer sociedade empresária e como evitar problemas futuros.', content: `<p>O Contrato Social é para uma empresa o que a certidão de nascimento é para uma pessoa. É o documento que estabelece as regras fundamentais de funcionamento da sociedade, os direitos e deveres de cada sócio, e como a empresa se apresentará perante terceiros...</p><h3>Pontos Cruciais</h3><ul><li>Definição clara do objeto social.</li><li>Capital social e quotas.</li><li>Administração da sociedade.</li></ul><p>Investir tempo e recursos na elaboração de um contrato social robusto com a ajuda de um advogado especializado não é um custo, mas sim um investimento na segurança e na longevidade do seu negócio.</p>` },
-                     { id: 2, title: 'Divórcio Extrajudicial: O que você precisa saber?', date: '05 de Junho, 2025', category: 'Direito de Família', imageUrl: 'https://images.unsplash.com/photo-1615286922421-c4d6cf50a867?q=80&w=1887&auto=format&fit=crop', summary: 'Descubra a forma mais rápida e menos burocrática de dissolver um casamento, diretamente no cartório.', content: `<p>O fim de um casamento é sempre um momento delicado, mas não precisa ser sinônimo de um processo longo e desgastante no judiciário. O divórcio extrajudicial, também conhecido como divórcio em cartório, é uma alternativa mais rápida, simples e econômica...</p><h3>Requisitos</h3><ul><li>Consenso entre o casal.</li><li>Ausência de filhos menores ou incapazes.</li><li>Assistência de um advogado.</li></ul><p>O advogado terá o papel de orientar o casal sobre seus direitos e garantir que todo o procedimento seja realizado de acordo com a lei.</p>` },
-                     { id: 3, title: 'Como funciona a recuperação de créditos tributários?', date: '01 de Junho, 2025', category: 'Direito Tributário', imageUrl: 'https://images.unsplash.com/photo-1579621970795-87f54d5921ba?q=80&w=1974&auto=format&fit=crop', summary: 'Sua empresa pode ter dinheiro a receber do Fisco. Entenda o que são os créditos tributários e como recuperá-los.', content: `<p>Em um sistema tributário complexo como o brasileiro, é comum que as empresas acabem pagando impostos em valor maior do que o devido. Esses pagamentos geram um "crédito tributário", um direito de reaver esses valores.</p><h3>Onde podem estar os créditos?</h3><ul><li>Pagamentos duplicados.</li><li>Utilização de alíquotas incorretas.</li><li>Não aproveitamento de benefícios fiscais.</li></ul><p>O primeiro passo é realizar um diagnóstico fiscal detalhado para identificar as oportunidades de recuperação nos últimos 5 anos.</p>` }
-                ]
-            };
-            
-            let siteData;
+        const firebaseConfig = {
+            apiKey: "AIzaSyCA3J6uo6F28u3WspI1tqy7Zfl0XiaG93A",
+            authDomain: "minutos-pagantes-super-bets.firebaseapp.com",
+            projectId: "minutos-pagantes-super-bets",
+            storageBucket: "minutos-pagantes-super-bets.appspot.com",
+            messagingSenderId: "303674713656",
+            appId: "1:303674713656:web:1d19adc77db837a5e0a8cd",
+            measurementId: "G-ZY3D99K7HL"
+        };
+        
+        let db;
+        
+        const DB_DOC_PATH = "siteContent/main";
 
-            // --- ELEMENTOS DO DOM ---
-            const mainContent = document.getElementById('main-content');
-            const homeView = document.getElementById('home-view');
-            const blogView = document.getElementById('blog-view');
-            const articleView = document.getElementById('article-view');
-            const loginView = document.getElementById('login-view');
-            const adminPanel = document.getElementById('admin-panel');
-            
-            // --- FUNÇÕES DE DADOS (LocalStorage) ---
-            function resizeImage(file, maxWidth = 1024, maxHeight = 1024, quality = 0.7) {
-                return new Promise((resolve, reject) => {
-                    const reader = new FileReader();
-                    reader.readAsDataURL(file);
-                    reader.onload = (event) => {
-                        const img = new Image();
-                        img.src = event.target.result;
-                        img.onload = () => {
-                            const canvas = document.createElement('canvas');
-                            let width = img.width;
-                            let height = img.height;
+        const defaultSiteData = {
+            contact: { phone: '(11) 99999-8888', phoneLink: 'tel:+5511999998888', whatsappLink: 'https://wa.me/5511999998888?text=Olá!', email: 'contato@mradvocacia.com.br', address: 'Rua Exemplo, 123 - Sala 45<br>Bairro, Cidade - UF, 12345-678', hours: 'Segunda a Sexta: 9:00 - 18:00', mapIframe: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197512702228!2d-46.656571584406!3d-23.56133986749968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0x202156515449a2a9!2sMASP%20-%20Museu%20de%20Arte%20de%20S%C3%A3o%20Paulo%20Assis%20Chateaubriand!5e0!3m2!1spt-BR!2sbr!4v1686411488950!5m2!1spt-BR!2sbr' },
+            team: [ { id: 1, name: 'Dr. Mateus Rocha', title: 'Sócio Fundador', oab: 'OAB/UF 123.456', specialty: 'Especialista em Direito Empresarial e Contratos.', imageUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1887&auto=format&fit=crop' }, { id: 2, name: 'Dra. Carolina Mendes', title: 'Sócia', oab: 'OAB/UF 123.457', specialty: 'Especialista em Direito de Família e Sucessões.', imageUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888&auto=format&fit=crop' }, { id: 3, name: 'Dr. Lucas Faria', title: 'Associado', oab: 'OAB/UF 123.458', specialty: 'Especialista em Direito Tributário e Contencioso.', imageUrl: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1887&auto=format&fit=crop' } ],
+            areas: [ { id: 1, title: 'Direito Empresarial', description: 'Assessoria completa para empresas, desde a constituição até a dissolução, incluindo contratos, M&A e compliance.', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>' }, { id: 2, title: 'Direito Tributário', description: 'Planejamento tributário, contencioso administrativo e judicial, e recuperação de créditos fiscais.', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>' }, { id: 3, title: 'Direito de Família', description: 'Atuação em divórcios, inventários, partilha de bens, guarda de filhos e planejamento sucessório.', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>' } ],
+            posts: [ { id: 1, title: 'A Importância de um Contrato Social bem Estruturado', date: '10 de Junho, 2025', category: 'Direito Empresarial', imageUrl: 'https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=1932&auto=format&fit=crop', summary: 'Entenda por que o Contrato Social é o pilar de qualquer sociedade empresária e como evitar problemas futuros.', content: `<p>O Contrato Social é para uma empresa o que a certidão de nascimento é para uma pessoa. É o documento que estabelece as regras fundamentais de funcionamento da sociedade, os direitos e deveres de cada sócio, e como a empresa se apresentará perante terceiros...</p><h3>Pontos Cruciais</h3><ul><li>Definição clara do objeto social.</li><li>Capital social e quotas.</li><li>Administração da sociedade.</li></ul><p>Investir tempo e recursos na elaboração de um contrato social robusto com a ajuda de um advogado especializado não é um custo, mas sim um investimento na segurança e na longevidade do seu negócio.</p>` }, { id: 2, title: 'Divórcio Extrajudicial: O que você precisa saber?', date: '05 de Junho, 2025', category: 'Direito de Família', imageUrl: 'https://images.unsplash.com/photo-1615286922421-c4d6cf50a867?q=80&w=1887&auto=format&fit=crop', summary: 'Descubra a forma mais rápida e menos burocrática de dissolver um casamento, diretamente no cartório.', content: `<p>O fim de um casamento é sempre um momento delicado, mas não precisa ser sinônimo de um processo longo e desgastante no judiciário. O divórcio extrajudicial, também conhecido como divórcio em cartório, é uma alternativa mais rápida, simples e econômica...</p><h3>Requisitos</h3><ul><li>Consenso entre o casal.</li><li>Ausência de filhos menores ou incapazes.</li><li>Assistência de um advogado.</li></ul><p>O advogado terá o papel de orientar o casal sobre seus direitos e garantir que todo o procedimento seja realizado de acordo com a lei.</p>` }, { id: 3, title: 'Como funciona a recuperação de créditos tributários?', date: '01 de Junho, 2025', category: 'Direito Tributário', imageUrl: 'https://images.unsplash.com/photo-1579621970795-87f54d5921ba?q=80&w=1974&auto=format&fit=crop', summary: 'Sua empresa pode ter dinheiro a receber do Fisco. Entenda o que são os créditos tributários e como recuperá-los.', content: `<p>Em um sistema tributário complexo como o brasileiro, é comum que as empresas acabem pagando impostos em valor maior do que o devido. Esses pagamentos geram um "crédito tributário", um direito de reaver esses valores.</p><h3>Onde podem estar os créditos?</h3><ul><li>Pagamentos duplicados.</li><li>Utilização de alíquotas incorretas.</li><li>Não aproveitamento de benefícios fiscais.</li></ul><p>O primeiro passo é realizar um diagnóstico fiscal detalhado para identificar as oportunidades de recuperação nos últimos 5 anos.</p>` } ]
+        };
+        
+        let siteData;
 
-                            if (width > height) {
-                                if (width > maxWidth) {
-                                    height *= maxWidth / width;
-                                    width = maxWidth;
-                                }
-                            } else {
-                                if (height > maxHeight) {
-                                    width *= maxHeight / height;
-                                    height = maxHeight;
-                                }
-                            }
-                            canvas.width = width;
-                            canvas.height = height;
-                            const ctx = canvas.getContext('2d');
-                            ctx.drawImage(img, 0, 0, width, height);
-                            resolve(canvas.toDataURL('image/jpeg', quality));
-                        };
-                        img.onerror = reject;
+        // --- ELEMENTOS DO DOM ---
+        const mainContent = document.getElementById('main-content');
+        const homeView = document.getElementById('home-view');
+        const blogView = document.getElementById('blog-view');
+        const articleView = document.getElementById('article-view');
+        const loginView = document.getElementById('login-view');
+        const adminPanel = document.getElementById('admin-panel');
+        
+        // --- FUNÇÕES DE DADOS (Firebase) ---
+        function resizeImage(file, maxWidth = 1024, maxHeight = 1024, quality = 0.7) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = (event) => {
+                    const img = new Image();
+                    img.src = event.target.result;
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        let width = img.width; let height = img.height;
+                        if (width > height) { if (width > maxWidth) { height *= maxWidth / width; width = maxWidth; } } 
+                        else { if (height > maxHeight) { width *= maxHeight / height; height = maxHeight; } }
+                        canvas.width = width; canvas.height = height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, width, height);
+                        resolve(canvas.toDataURL('image/jpeg', quality));
                     };
-                    reader.onerror = reject;
-                });
-            }
-            
-            const saveData = (showSuccessMessage = true) => {
-                try {
-                    localStorage.setItem(STORAGE_KEY, JSON.stringify(siteData));
-                    if (showSuccessMessage) {
-                        alert('Informações salvas com sucesso!');
-                    }
-                } catch (e) {
-                    if (e.name === 'QuotaExceededError') {
-                        alert('Erro: O limite de armazenamento do navegador foi excedido. Isso geralmente acontece ao salvar muitas imagens grandes. Tente remover artigos antigos do blog ou usar imagens com URLs externas em vez de fazer upload.');
-                    } else {
-                        alert('Ocorreu um erro desconhecido ao salvar os dados.');
-                        console.error(e);
-                    }
+                    img.onerror = reject;
+                };
+                reader.onerror = reject;
+            });
+        }
+        
+        async function saveData(showSuccessMessage = true) {
+            if (!db) return;
+            try {
+                const docRef = doc(db, DB_DOC_PATH);
+                await setDoc(docRef, siteData);
+                if (showSuccessMessage) {
+                    alert('Informações salvas com sucesso no banco de dados!');
                 }
-            };
+            } catch (e) {
+                alert('Ocorreu um erro ao salvar os dados. Verifique o console para mais detalhes.');
+                console.error("Erro ao salvar no Firestore: ", e);
+            }
+        };
 
-            const loadData = () => {
-                const savedData = localStorage.getItem(STORAGE_KEY);
-                siteData = savedData ? JSON.parse(savedData) : JSON.parse(JSON.stringify(defaultSiteData));
-            };
-
-            // --- FUNÇÕES DE RENDERIZAÇÃO DO SITE PÚBLICO ---
-            const renderAll = () => {
-                renderContactInfo();
-                renderTeam();
-                renderAreas();
-                renderBlogPreview();
-                document.getElementById('whatsapp-button').href = siteData.contact.whatsappLink;
-            };
-
-            const renderContactInfo = () => {
-                const { contact } = siteData;
-                document.getElementById('contact-info-container').innerHTML = `
-                    <div><h3 class="text-xl font-bold font-heading text-brand-primary mb-2">Nosso Endereço</h3><p>${contact.address}</p></div>
-                    <div><h3 class="text-xl font-bold font-heading text-brand-primary mb-2">Telefone</h3><a href="${contact.phoneLink}" class="hover:text-brand-accent transition">${contact.phone}</a></div>
-                    <div><h3 class="text-xl font-bold font-heading text-brand-primary mb-2">E-mail</h3><a href="mailto:${contact.email}" class="hover:text-brand-accent transition">${contact.email}</a></div>
-                    <div><h3 class="text-xl font-bold font-heading text-brand-primary mb-2">Horário</h3><p>${contact.hours}</p></div>`;
-                document.getElementById('map-container').innerHTML = `<iframe src="${contact.mapIframe}" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-lg shadow-md"></iframe>`;
-            };
-
-            const renderTeam = () => {
-                document.getElementById('team-container').innerHTML = siteData.team.map(member => `
-                    <div class="text-center">
-                        <img src="${member.imageUrl}" alt="Foto de ${member.name}" class="w-48 h-48 mx-auto rounded-full shadow-lg mb-4 object-cover">
-                        <h3 class="text-xl font-bold font-heading text-brand-primary">${member.name}</h3>
-                        <p class="text-brand-accent font-semibold">${member.title}</p>
-                        <p class="text-sm text-gray-500 mb-2">${member.oab}</p>
-                        <p class="text-sm">${member.specialty}</p>
-                    </div>`).join('');
-            };
-
-            const renderAreas = () => {
-                document.getElementById('areas-container').innerHTML = siteData.areas.map(area => `
-                    <div class="bg-white p-8 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
-                        <div class="bg-brand-accent text-brand-primary rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">${area.iconSvg}</div>
-                        <h3 class="text-xl font-bold font-heading text-brand-primary mb-2">${area.title}</h3>
-                        <p class="text-sm">${area.description}</p>
-                    </div>`).join('');
-            };
+        async function loadAndSyncData() {
+            if (!db) return;
+            const docRef = doc(db, DB_DOC_PATH);
             
-            const createPostCard = (post) => `
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="${post.imageUrl}" alt="Imagem para o artigo: ${post.title}" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <p class="text-sm text-gray-500 mb-2">${post.category} • ${post.date}</p>
-                        <h3 class="font-bold font-heading text-lg text-brand-primary mb-3">${post.title}</h3>
-                        <p class="text-sm mb-4">${post.summary}</p>
-                        <a href="#" class="read-more-link font-semibold text-brand-accent hover:text-brand-primary transition" data-post-id="${post.id}">Leia mais &rarr;</a>
-                    </div>
-                </div>`;
+            onSnapshot(docRef, (docSnap) => {
+                if (docSnap.exists()) {
+                    siteData = docSnap.data();
+                } else {
+                    siteData = JSON.parse(JSON.stringify(defaultSiteData));
+                    saveData(false); 
+                }
+                renderAll();
+            }, (error) => {
+                console.error("Erro ao sincronizar com Firebase: ", error);
+                displayFirebaseError(error);
+                siteData = JSON.parse(JSON.stringify(defaultSiteData));
+                renderAll();
+            });
+        };
 
-            const renderBlogPreview = () => {
-                const previewPosts = siteData.posts.slice(0, 3);
-                document.getElementById('blog-preview-container').innerHTML = previewPosts.map(createPostCard).join('');
-            };
+        // --- FUNÇÕES DE RENDERIZAÇÃO DO SITE PÚBLICO ---
+        const renderAll = () => {
+            if(!siteData) return;
+            renderContactInfo(); renderTeam(); renderAreas(); renderBlogPreview();
+            document.getElementById('whatsapp-button').href = siteData.contact.whatsappLink;
+        };
+        const renderContactInfo = () => {
+            const { contact } = siteData;
+            document.getElementById('contact-info-container').innerHTML = `<div><h3 class="text-xl font-bold font-heading text-brand-primary mb-2">Nosso Endereço</h3><p>${contact.address}</p></div><div><h3 class="text-xl font-bold font-heading text-brand-primary mb-2">Telefone</h3><a href="${contact.phoneLink}" class="hover:text-brand-accent transition">${contact.phone}</a></div><div><h3 class="text-xl font-bold font-heading text-brand-primary mb-2">E-mail</h3><a href="mailto:${contact.email}" class="hover:text-brand-accent transition">${contact.email}</a></div><div><h3 class="text-xl font-bold font-heading text-brand-primary mb-2">Horário</h3><p>${contact.hours}</p></div>`;
+            document.getElementById('map-container').innerHTML = `<iframe src="${contact.mapIframe}" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-lg shadow-md"></iframe>`;
+        };
+        const renderTeam = () => {
+            document.getElementById('team-container').innerHTML = siteData.team.map(member => `<div class="text-center"><img src="${member.imageUrl}" alt="Foto de ${member.name}" class="w-48 h-48 mx-auto rounded-full shadow-lg mb-4 object-cover"><h3 class="text-xl font-bold font-heading text-brand-primary">${member.name}</h3><p class="text-brand-accent font-semibold">${member.title}</p><p class="text-sm text-gray-500 mb-2">${member.oab}</p><p class="text-sm">${member.specialty}</p></div>`).join('');
+        };
+        const renderAreas = () => {
+            document.getElementById('areas-container').innerHTML = siteData.areas.map(area => `<div class="bg-white p-8 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition-transform duration-300"><div class="bg-brand-accent text-brand-primary rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">${area.iconSvg}</div><h3 class="text-xl font-bold font-heading text-brand-primary mb-2">${area.title}</h3><p class="text-sm">${area.description}</p></div>`).join('');
+        };
+        const createPostCard = (post) => `
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <img src="${post.imageUrl}" alt="Imagem para o artigo: ${post.title}" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <p class="text-sm text-gray-500 mb-2">${post.category} • ${post.date}</p>
+                    <h3 class="font-bold font-heading text-lg text-brand-primary mb-3">${post.title}</h3>
+                    <p class="text-sm mb-4">${post.summary}</p>
+                    <a href="#" class="read-more-link font-semibold text-brand-accent hover:text-brand-primary transition" data-post-id="${post.id}">Leia mais &rarr;</a>
+                </div>
+            </div>`;
+        const renderBlogPreview = () => {
+            const previewPosts = siteData.posts.slice(0, 3);
+            document.getElementById('blog-preview-container').innerHTML = previewPosts.map(createPostCard).join('');
+        };
 
-            // --- FUNÇÕES DE NAVEGAÇÃO / ROTEAMENTO ---
-            const showView = (viewId) => {
-                ['home-view', 'blog-view', 'article-view', 'login-view', 'admin-panel'].forEach(id => {
-                    const el = document.getElementById(id);
-                    if(el) el.style.display = (id === viewId) ? 'block' : 'none';
+        // --- FUNÇÕES DE NAVEGAÇÃO / ROTEAMENTO ---
+        const showView = (viewId) => {
+            ['home-view', 'blog-view', 'article-view', 'login-view', 'admin-panel'].forEach(id => {
+                const el = document.getElementById(id); if(el) el.style.display = (id === viewId) ? 'block' : 'none';
+            });
+            document.querySelector('body').style.backgroundColor = (viewId === 'admin-panel' || viewId === 'login-view') ? '#e5e7eb' : '#F5F5F5';
+            window.scrollTo(0, 0);
+        };
+        const showBlogView = () => {
+            let blogContent = `<section class="py-20"><div class="container mx-auto px-6 md:px-12 lg:px-[200px]"><div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-brand-primary font-heading">Nosso Blog</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">Artigos e análises para manter você informado sobre seus direitos.</p><div class="w-24 h-1 bg-brand-accent mx-auto mt-4"></div></div><div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">${siteData.posts.map(createPostCard).join('')}</div></div></section>`;
+            blogView.innerHTML = blogContent;
+            showView('blog-view');
+        };
+        const showArticleView = (postId) => {
+            const post = siteData.posts.find(p => p.id === postId);
+            if (!post) return;
+            let articleContent = `<section class="py-12 md:py-20"><div class="container mx-auto px-6 md:px-12 lg:px-[10px] max-w-4xl"><button id="back-to-blog" class="font-semibold text-brand-primary hover:text-brand-accent transition mb-8">&larr; Voltar para o blog</button><h1 class="text-3xl md:text-5xl font-bold font-heading text-brand-primary leading-tight mb-4">${post.title}</h1><p class="text-gray-500 mb-6">${post.category} • ${post.date}</p><img src="${post.imageUrl}" alt="${post.title}" class="rounded-lg shadow-lg w-full mb-8"><div class="article-content text-lg text-gray-800">${post.content}</div></div></section>`;
+            articleView.innerHTML = articleContent;
+            showView('article-view');
+            document.getElementById('back-to-blog').addEventListener('click', showBlogView);
+        };
+        
+        // --- LÓGICA DE ADMINISTRAÇÃO ---
+        const displayAdminPanel = () => { renderAdminPanel(); showView('admin-panel'); };
+        const showLoginView = () => {
+            loginView.innerHTML = `<div class="min-h-screen flex items-center justify-center bg-gray-200 p-6"><div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-sm"><h2 class="text-2xl font-bold text-center text-brand-primary mb-6 font-heading">Acesso Restrito</h2><form id="login-form"><div class="mb-4"><label for="password" class="admin-label">Senha</label><input type="password" id="password" class="admin-input"></div><button type="submit" class="w-full admin-button">Entrar</button></form><p id="login-error" class="text-red-600 text-center mt-4 hidden">Senha incorreta.</p><button id="back-to-site" class="w-full text-center mt-6 text-sm text-gray-600 hover:text-brand-primary">Voltar ao site</button></div></div>`;
+            showView('login-view');
+            document.getElementById('login-form').addEventListener('submit', (e) => { e.preventDefault(); const p = document.getElementById('password'); if (p.value === ADMIN_PASSWORD) { document.getElementById('login-error').style.display = 'none'; displayAdminPanel(); } else { document.getElementById('login-error').style.display = 'block'; p.value = ''; } });
+            document.getElementById('back-to-site').addEventListener('click', () => { window.location.hash = ''; });
+        };
+        const renderAdminPanel = () => {
+            adminPanel.innerHTML = `<div class="container mx-auto px-6 md:px-12 lg:px-[200px] py-12"><div class="flex justify-between items-center mb-8"><h2 class="text-3xl md:text-4xl font-bold text-brand-primary font-heading">Painel Administrativo</h2><button id="exit-admin" class="admin-button admin-button-delete">Sair do Painel</button></div><div class="admin-section"><h3>Informações de Contato</h3><form id="admin-contact-form" class="space-y-4"></form></div><div class="admin-section"><h3>Equipe</h3><div id="admin-team-container" class="space-y-6"></div></div><div class="admin-section" id="admin-blog-section"></div></div>`;
+            document.getElementById('admin-contact-form').innerHTML = `<div><label class="admin-label">Telefone (visível)</label><input class="admin-input" id="contact-phone" value="${siteData.contact.phone}"></div><div><label class="admin-label">Link Telefone (tel:+55...)</label><input class="admin-input" id="contact-phoneLink" value="${siteData.contact.phoneLink}"></div><div><label class="admin-label">Link WhatsApp (https://wa.me/...)</label><input class="admin-input" id="contact-whatsappLink" value="${siteData.contact.whatsappLink}"></div><div><label class="admin-label">E-mail</label><input class="admin-input" id="contact-email" value="${siteData.contact.email}"></div><div><label class="admin-label">Endereço (use &lt;br&gt; para quebrar linha)</label><textarea class="admin-input" id="contact-address" rows="3">${siteData.contact.address}</textarea></div><div><label class="admin-label">Horário</label><input class="admin-input" id="contact-hours" value="${siteData.contact.hours}"></div><div><label class="admin-label">Iframe do Google Maps</label><textarea class="admin-input" id="contact-mapIframe" rows="4">${siteData.contact.mapIframe}</textarea></div><button type="submit" class="admin-button">Salvar Contato</button>`;
+            renderAdminTeamForms(); renderAdminBlogSection(); addAdminPanelEventListeners();
+        };
+        const renderAdminTeamForms = () => {
+            document.getElementById('admin-team-container').innerHTML = siteData.team.map(m => `<form class="admin-team-form border-t pt-4" data-id="${m.id}"><h4 class="font-bold text-lg">${m.name}</h4><div class="grid md:grid-cols-2 gap-4 mt-2"><div><label class="admin-label">Nome</label><input class="admin-input team-name" value="${m.name}"></div><div><label class="admin-label">Cargo</label><input class="admin-input team-title" value="${m.title}"></div><div><label class="admin-label">OAB</label><input class="admin-input team-oab" value="${m.oab}"></div><div><label class="admin-label">Especialidade</label><input class="admin-input team-specialty" value="${m.specialty}"></div><div class="md:col-span-2"><label class="admin-label">URL da Foto</label><input class="admin-input team-imageUrl" value="${m.imageUrl}"></div><div class="md:col-span-2"><label class="admin-label">Ou faça upload da foto (otimizada)</label><input type="file" class="admin-file-upload team-imageUpload" accept="image/*"></div></div><button type="submit" class="admin-button mt-4">Salvar Advogado</button></form>`).join('');
+        };
+        const renderAdminBlogSection = () => {
+             document.getElementById('admin-blog-section').innerHTML = `<h3>Gerenciar Blog</h3><div id="admin-blog-list" class="mb-8"></div><h4 class="text-xl font-bold text-brand-primary font-heading mb-4 border-t pt-6">Criar / Editar Artigo</h4><form id="admin-blog-form" class="space-y-4"><input type="hidden" id="blog-id"><div><label class="admin-label">Título</label><input class="admin-input" id="blog-title" placeholder="Título do artigo"></div><div><label class="admin-label">Categoria</label><input class="admin-input" id="blog-category" placeholder="Ex: Direito de Família"></div><div><label class="admin-label">URL da Imagem</label><input class="admin-input" id="blog-imageUrl" placeholder="https://images.unsplash.com/..."></div><div><label class="admin-label">Ou faça upload da imagem (otimizada)</label><input type="file" id="blog-imageUpload" class="admin-file-upload" accept="image/*"></div><div><label class="admin-label">Resumo (para a página inicial)</label><textarea class="admin-input" id="blog-summary" rows="3" placeholder="Resumo curto..."></textarea></div><div><label class="admin-label">Conteúdo Completo (aceita HTML)</label><textarea class="admin-input" id="blog-content" rows="10" placeholder="Escreva o artigo aqui..."></textarea></div><button type="submit" class="admin-button">Salvar Artigo</button><button type="button" id="blog-clear-btn" class="admin-button bg-gray-500 hover:bg-gray-600">Limpar Formulário</button></form>`;
+            renderAdminBlogList();
+        };
+        const renderAdminBlogList = () => {
+            document.getElementById('admin-blog-list').innerHTML = siteData.posts.map(p => `<div class="flex justify-between items-center p-3 border-b"><span class="truncate pr-4">${p.title}</span><div><button class="admin-blog-edit-btn text-sm admin-button" data-id="${p.id}">Editar</button><button class="admin-blog-delete-btn text-sm admin-button admin-button-delete" data-id="${p.id}">Excluir</button></div></div>`).join('');
+        };
+        const addAdminPanelEventListeners = () => {
+            document.getElementById('exit-admin').addEventListener('click', () => { window.location.hash = ''; });
+            document.getElementById('admin-contact-form').addEventListener('submit', e => { e.preventDefault(); siteData.contact = { phone: document.getElementById('contact-phone').value, phoneLink: document.getElementById('contact-phoneLink').value, whatsappLink: document.getElementById('contact-whatsappLink').value, email: document.getElementById('contact-email').value, address: document.getElementById('contact-address').value, hours: document.getElementById('contact-hours').value, mapIframe: document.getElementById('contact-mapIframe').value }; saveData(); });
+            document.querySelectorAll('.admin-team-form').forEach(form => {
+                form.addEventListener('submit', async e => {
+                    e.preventDefault(); const id = parseInt(e.currentTarget.dataset.id); const member = siteData.team.find(m => m.id === id); const fileInput = e.currentTarget.querySelector('.team-imageUpload');
+                    const updateAndSave = (imageUrl) => { member.name = e.currentTarget.querySelector('.team-name').value; member.title = e.currentTarget.querySelector('.team-title').value; member.oab = e.currentTarget.querySelector('.team-oab').value; member.specialty = e.currentTarget.querySelector('.team-specialty').value; member.imageUrl = imageUrl || e.currentTarget.querySelector('.team-imageUrl').value; saveData(); };
+                    if (fileInput.files[0]) { try { const resizedImageUrl = await resizeImage(fileInput.files[0]); updateAndSave(resizedImageUrl); } catch (error) { console.error("Error resizing image: ", error); alert("Houve um erro ao processar a imagem."); } } else { updateAndSave(); }
                 });
-                document.querySelector('body').style.backgroundColor = (viewId === 'admin-panel' || viewId === 'login-view') ? '#e5e7eb' : '#F5F5F5';
-                window.scrollTo(0, 0);
-            };
+            });
+            const blogForm = document.getElementById('admin-blog-form');
+            blogForm.addEventListener('submit', async e => {
+                e.preventDefault();
+                const updateAndSavePost = (imageUrl) => {
+                    const id = parseInt(document.getElementById('blog-id').value);
+                    const data = { title: document.getElementById('blog-title').value, category: document.getElementById('blog-category').value, summary: document.getElementById('blog-summary').value, content: document.getElementById('blog-content').value, imageUrl: imageUrl || document.getElementById('blog-imageUrl').value };
+                    if (!data.title || !data.category || !data.summary || !data.content || !data.imageUrl) { alert('Por favor, preencha todos os campos do artigo, incluindo uma URL de imagem ou um upload.'); return; }
+                    if (id) { Object.assign(siteData.posts.find(p => p.id === id), data); } else { const newId = siteData.posts.length > 0 ? Math.max(...siteData.posts.map(p => p.id)) + 1 : 1; siteData.posts.unshift({ id: newId, ...data, date: new Date().toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' }) }); }
+                    saveData(); blogForm.reset(); document.getElementById('blog-id').value = '';
+                };
+                const fileInput = document.getElementById('blog-imageUpload');
+                if(fileInput.files[0]){ try { const resizedImageUrl = await resizeImage(fileInput.files[0]); updateAndSavePost(resizedImageUrl); } catch (error) { console.error("Error resizing image: ", error); alert("Houve um erro ao processar a imagem."); } } else { updateAndSavePost(); }
+            });
+            document.getElementById('blog-clear-btn').addEventListener('click', () => { blogForm.reset(); document.getElementById('blog-id').value = ''; });
+            document.getElementById('admin-blog-list').addEventListener('click', e => { const id = parseInt(e.target.dataset.id); if (e.target.classList.contains('admin-blog-edit-btn')) { const post = siteData.posts.find(p => p.id === id); document.getElementById('blog-id').value = post.id; document.getElementById('blog-title').value = post.title; document.getElementById('blog-category').value = post.category; document.getElementById('blog-imageUrl').value = post.imageUrl; document.getElementById('blog-summary').value = post.summary; document.getElementById('blog-content').value = post.content; blogForm.scrollIntoView({ behavior: 'smooth' }); } if (e.target.classList.contains('admin-blog-delete-btn')) { if (confirm('Tem certeza que deseja excluir este artigo?')) { siteData.posts = siteData.posts.filter(p => p.id !== id); saveData(); } } });
+        };
 
-            const showBlogView = () => {
-                let blogContent = `<section class="py-20"><div class="container mx-auto px-6 md:px-12 lg:px-[250px]"><div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-brand-primary font-heading">Nosso Blog</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">Artigos e análises para manter você informado sobre seus direitos.</p><div class="w-24 h-1 bg-brand-accent mx-auto mt-4"></div></div><div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">${siteData.posts.map(createPostCard).join('')}</div></div></section>`;
-                blogView.innerHTML = blogContent;
-                showView('blog-view');
-            };
-
-            const showArticleView = (postId) => {
-                const post = siteData.posts.find(p => p.id === postId);
-                if (!post) return;
-                let articleContent = `<section class="py-12 md:py-20"><div class="container mx-auto px-6 md:px-12 lg:px-[10px] max-w-4xl"><button id="back-to-blog" class="font-semibold text-brand-primary hover:text-brand-accent transition mb-8">&larr; Voltar para o blog</button><h1 class="text-3xl md:text-5xl font-bold font-heading text-brand-primary leading-tight mb-4">${post.title}</h1><p class="text-gray-500 mb-6">${post.category} • ${post.date}</p><img src="${post.imageUrl}" alt="${post.title}" class="rounded-lg shadow-lg w-full mb-8"><div class="article-content text-lg text-gray-800">${post.content}</div></div></section>`;
-                articleView.innerHTML = articleContent;
-                showView('article-view');
-                document.getElementById('back-to-blog').addEventListener('click', showBlogView);
-            };
-            
-            // --- LÓGICA DE ADMINISTRAÇÃO ---
-            const displayAdminPanel = () => {
-                renderAdminPanel();
-                showView('admin-panel');
-            };
-
-            const showLoginView = () => {
-                loginView.innerHTML = `
-                    <div class="min-h-screen flex items-center justify-center bg-gray-200 p-6">
-                        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-sm">
-                            <h2 class="text-2xl font-bold text-center text-brand-primary mb-6 font-heading">Acesso Restrito</h2>
-                            <form id="login-form">
-                                <div class="mb-4">
-                                    <label for="password" class="admin-label">Senha</label>
-                                    <input type="password" id="password" class="admin-input">
-                                </div>
-                                <button type="submit" class="w-full admin-button">Entrar</button>
-                            </form>
-                            <p id="login-error" class="text-red-600 text-center mt-4 hidden">Senha incorreta.</p>
-                            <button id="back-to-site" class="w-full text-center mt-6 text-sm text-gray-600 hover:text-brand-primary">Voltar ao site</button>
-                        </div>
-                    </div>
-                `;
-                showView('login-view');
-
-                document.getElementById('login-form').addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const passwordInput = document.getElementById('password');
-                    const loginError = document.getElementById('login-error');
-                    if (passwordInput.value === ADMIN_PASSWORD) {
-                        loginError.style.display = 'none';
-                        displayAdminPanel();
-                    } else {
-                        loginError.style.display = 'block';
-                        passwordInput.value = '';
-                    }
-                });
-                document.getElementById('back-to-site').addEventListener('click', () => {
-                    window.location.hash = '';
-                });
-            };
-
-            const renderAdminPanel = () => {
-                adminPanel.innerHTML = `
-                    <div class="container mx-auto px-6 md:px-12 lg:px-[250px] py-12">
-                        <div class="flex justify-between items-center mb-8">
-                            <h2 class="text-3xl md:text-4xl font-bold text-brand-primary font-heading">Painel Administrativo</h2>
-                            <button id="exit-admin" class="admin-button admin-button-delete">Sair do Painel</button>
-                        </div>
-                        <div class="admin-section"><h3>Informações de Contato</h3><form id="admin-contact-form" class="space-y-4"></form></div>
-                        <div class="admin-section"><h3>Equipe</h3><div id="admin-team-container" class="space-y-6"></div></div>
-                        <div class="admin-section" id="admin-blog-section"></div>
-                    </div>
-                `;
-                document.getElementById('admin-contact-form').innerHTML = `
-                    <div><label class="admin-label">Telefone (visível)</label><input class="admin-input" id="contact-phone" value="${siteData.contact.phone}"></div>
-                    <div><label class="admin-label">Link Telefone (tel:+55...)</label><input class="admin-input" id="contact-phoneLink" value="${siteData.contact.phoneLink}"></div>
-                    <div><label class="admin-label">Link WhatsApp (https://wa.me/...)</label><input class="admin-input" id="contact-whatsappLink" value="${siteData.contact.whatsappLink}"></div>
-                    <div><label class="admin-label">E-mail</label><input class="admin-input" id="contact-email" value="${siteData.contact.email}"></div>
-                    <div><label class="admin-label">Endereço (use &lt;br&gt; para quebrar linha)</label><textarea class="admin-input" id="contact-address" rows="3">${siteData.contact.address}</textarea></div>
-                    <div><label class="admin-label">Horário</label><input class="admin-input" id="contact-hours" value="${siteData.contact.hours}"></div>
-                    <div><label class="admin-label">Iframe do Google Maps</label><textarea class="admin-input" id="contact-mapIframe" rows="4">${siteData.contact.mapIframe}</textarea></div>
-                    <button type="submit" class="admin-button">Salvar Contato</button>`;
-                renderAdminTeamForms();
-                renderAdminBlogSection();
-                addAdminPanelEventListeners();
-            };
-            
-            const renderAdminTeamForms = () => {
-                document.getElementById('admin-team-container').innerHTML = siteData.team.map(member => `
-                    <form class="admin-team-form border-t pt-4" data-id="${member.id}">
-                        <h4 class="font-bold text-lg">${member.name}</h4>
-                        <div class="grid md:grid-cols-2 gap-4 mt-2">
-                            <div><label class="admin-label">Nome</label><input class="admin-input team-name" value="${member.name}"></div>
-                            <div><label class="admin-label">Cargo</label><input class="admin-input team-title" value="${member.title}"></div>
-                            <div><label class="admin-label">OAB</label><input class="admin-input team-oab" value="${member.oab}"></div>
-                            <div><label class="admin-label">Especialidade</label><input class="admin-input team-specialty" value="${member.specialty}"></div>
-                            <div class="md:col-span-2"><label class="admin-label">URL da Foto</label><input class="admin-input team-imageUrl" value="${member.imageUrl}"></div>
-                            <div class="md:col-span-2"><label class="admin-label">Ou faça upload da foto (otimizada)</label><input type="file" class="admin-file-upload team-imageUpload" accept="image/*"></div>
-                        </div>
-                        <button type="submit" class="admin-button mt-4">Salvar Advogado</button>
-                    </form>
-                `).join('');
-            };
-            
-            const renderAdminBlogSection = () => {
-                 document.getElementById('admin-blog-section').innerHTML = `
-                    <h3>Gerenciar Blog</h3>
-                    <div id="admin-blog-list" class="mb-8"></div>
-                    <h4 class="text-xl font-bold text-brand-primary font-heading mb-4 border-t pt-6">Criar / Editar Artigo</h4>
-                    <form id="admin-blog-form" class="space-y-4">
-                        <input type="hidden" id="blog-id">
-                        <div><label class="admin-label">Título</label><input class="admin-input" id="blog-title" placeholder="Título do artigo"></div>
-                        <div><label class="admin-label">Categoria</label><input class="admin-input" id="blog-category" placeholder="Ex: Direito de Família"></div>
-                        <div><label class="admin-label">URL da Imagem</label><input class="admin-input" id="blog-imageUrl" placeholder="https://images.unsplash.com/..."></div>
-                        <div><label class="admin-label">Ou faça upload da imagem (otimizada)</label><input type="file" id="blog-imageUpload" class="admin-file-upload" accept="image/*"></div>
-                        <div><label class="admin-label">Resumo (para a página inicial)</label><textarea class="admin-input" id="blog-summary" rows="3" placeholder="Resumo curto..."></textarea></div>
-                        <div><label class="admin-label">Conteúdo Completo (aceita HTML)</label><textarea class="admin-input" id="blog-content" rows="10" placeholder="Escreva o artigo aqui..."></textarea></div>
-                        <button type="submit" class="admin-button">Salvar Artigo</button>
-                        <button type="button" id="blog-clear-btn" class="admin-button bg-gray-500 hover:bg-gray-600">Limpar Formulário</button>
-                    </form>
-                 `;
-                renderAdminBlogList();
-            };
-
-            const renderAdminBlogList = () => {
-                document.getElementById('admin-blog-list').innerHTML = siteData.posts.map(post => `
-                    <div class="flex justify-between items-center p-3 border-b">
-                        <span class="truncate pr-4">${post.title}</span>
-                        <div>
-                            <button class="admin-blog-edit-btn text-sm admin-button" data-id="${post.id}">Editar</button>
-                            <button class="admin-blog-delete-btn text-sm admin-button admin-button-delete" data-id="${post.id}">Excluir</button>
-                        </div>
-                    </div>`).join('');
-            };
-            
-            const addAdminPanelEventListeners = () => {
-                document.getElementById('exit-admin').addEventListener('click', () => { window.location.hash = ''; });
-                document.getElementById('admin-contact-form').addEventListener('submit', e => { e.preventDefault(); siteData.contact = { phone: document.getElementById('contact-phone').value, phoneLink: document.getElementById('contact-phoneLink').value, whatsappLink: document.getElementById('contact-whatsappLink').value, email: document.getElementById('contact-email').value, address: document.getElementById('contact-address').value, hours: document.getElementById('contact-hours').value, mapIframe: document.getElementById('contact-mapIframe').value }; saveData(); renderAll(); });
-                
-                document.querySelectorAll('.admin-team-form').forEach(form => {
-                    form.addEventListener('submit', async e => {
-                        e.preventDefault();
-                        const id = parseInt(e.currentTarget.dataset.id);
-                        const member = siteData.team.find(m => m.id === id);
-                        const fileInput = e.currentTarget.querySelector('.team-imageUpload');
-
-                        const updateAndSave = (imageUrl) => {
-                            member.name = e.currentTarget.querySelector('.team-name').value;
-                            member.title = e.currentTarget.querySelector('.team-title').value;
-                            member.oab = e.currentTarget.querySelector('.team-oab').value;
-                            member.specialty = e.currentTarget.querySelector('.team-specialty').value;
-                            member.imageUrl = imageUrl || e.currentTarget.querySelector('.team-imageUrl').value;
-                            saveData();
-                            renderAll();
-                        };
-                        
-                        if (fileInput.files[0]) {
-                            try {
-                                const resizedImageUrl = await resizeImage(fileInput.files[0]);
-                                updateAndSave(resizedImageUrl);
-                            } catch (error) {
-                                console.error("Error resizing image: ", error);
-                                alert("Houve um erro ao processar a imagem. Tente novamente.");
-                            }
-                        } else {
-                            updateAndSave();
-                        }
-                    });
-                });
-                
-                const blogForm = document.getElementById('admin-blog-form');
-                blogForm.addEventListener('submit', async e => {
-                    e.preventDefault();
-                    
-                    const updateAndSavePost = (imageUrl) => {
-                        const id = parseInt(document.getElementById('blog-id').value);
-                        const data = { 
-                            title: document.getElementById('blog-title').value, 
-                            category: document.getElementById('blog-category').value, 
-                            summary: document.getElementById('blog-summary').value, 
-                            content: document.getElementById('blog-content').value,
-                            imageUrl: imageUrl || document.getElementById('blog-imageUrl').value
-                        }; 
-                        
-                        if (!data.title || !data.category || !data.summary || !data.content || !data.imageUrl) { 
-                            alert('Por favor, preencha todos os campos do artigo, incluindo uma URL de imagem ou um upload.'); return; 
-                        } 
-                        
-                        if (id) { 
-                            Object.assign(siteData.posts.find(p => p.id === id), data); 
-                        } else { 
-                            const newId = siteData.posts.length > 0 ? Math.max(...siteData.posts.map(p => p.id)) + 1 : 1; 
-                            siteData.posts.unshift({ id: newId, ...data, date: new Date().toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' }) }); 
-                        } 
-                        
-                        saveData(); 
-                        renderAll(); 
-                        renderAdminBlogList(); 
-                        blogForm.reset(); 
-                        document.getElementById('blog-id').value = '';
-                    };
-
-                    const fileInput = document.getElementById('blog-imageUpload');
-                    if(fileInput.files[0]){
-                        try {
-                            const resizedImageUrl = await resizeImage(fileInput.files[0]);
-                            updateAndSavePost(resizedImageUrl);
-                        } catch (error) {
-                            console.error("Error resizing image: ", error);
-                            alert("Houve um erro ao processar a imagem. Tente novamente.");
-                        }
-                    } else {
-                        updateAndSavePost();
-                    }
-                });
-
-                document.getElementById('blog-clear-btn').addEventListener('click', () => { blogForm.reset(); document.getElementById('blog-id').value = ''; });
-
-                document.getElementById('admin-blog-list').addEventListener('click', e => { const id = parseInt(e.target.dataset.id); if (e.target.classList.contains('admin-blog-edit-btn')) { const post = siteData.posts.find(p => p.id === id); document.getElementById('blog-id').value = post.id; document.getElementById('blog-title').value = post.title; document.getElementById('blog-category').value = post.category; document.getElementById('blog-imageUrl').value = post.imageUrl; document.getElementById('blog-summary').value = post.summary; document.getElementById('blog-content').value = post.content; blogForm.scrollIntoView({ behavior: 'smooth' }); } if (e.target.classList.contains('admin-blog-delete-btn')) { if (confirm('Tem certeza que deseja excluir este artigo?')) { siteData.posts = siteData.posts.filter(p => p.id !== id); saveData(); renderAll(); renderAdminBlogList(); } } });
-            };
-
-            // --- INICIALIZAÇÃO E ROTEAMENTO ---
+        // --- INICIALIZAÇÃO E ROTEAMENTO ---
+        function initializeAppLogic() {
             const handleRouting = () => { window.location.hash === '#admin' ? showLoginView() : showView('home-view'); };
-            
             window.addEventListener('hashchange', handleRouting);
-
             document.body.addEventListener('click', e => {
                 const link = e.target.closest('a');
-                if (!link) {
-                    if (e.target.closest('button#view-all-posts-btn')) {
-                        showBlogView();
-                    }
-                    return;
-                }
-
-                const href = link.getAttribute('href');
-                if (!href) return;
-                
-                if (link.classList.contains('read-more-link')) {
+                if (link?.classList.contains('read-more-link')) {
                     e.preventDefault();
                     showArticleView(parseInt(link.dataset.postId, 10));
-                    return;
                 }
-
-                if (href.startsWith('#')) {
+            });
+            document.querySelectorAll('.nav-link, .nav-link-mobile, #home-link-logo, footer a[href^="#"]').forEach(link => {
+                link.addEventListener('click', e => {
                     e.preventDefault();
+                    const href = link.getAttribute('href');
                     const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                    
-                    if (href === '#admin') {
-                        window.location.hash = '#admin';
-                        return;
-                    }
-                    if (link.id === 'blog-nav-link' || link.id === 'blog-nav-link-mobile') {
-                        showBlogView();
-                        return;
-                    }
-                    if (link.id === 'home-link-logo') {
-                        window.location.hash = '';
-                        showView('home-view');
-                        return;
-                    }
-                    if (link.classList.contains('nav-link') || link.classList.contains('nav-link-mobile')) {
-                        showView('home-view');
-                        setTimeout(() => {
-                            const targetElement = document.querySelector(href);
-                            if (targetElement) {
-                                targetElement.scrollIntoView({ behavior: 'smooth' });
-                            }
-                        }, 50);
-                    }
-                }
+                    if (!mobileMenu.classList.contains('hidden')) { mobileMenu.classList.add('hidden'); }
+                    if (href === '#') { window.location.hash = ''; return; }
+                    if (href === '#admin') { window.location.hash = '#admin'; return; }
+                    if (link.id.includes('blog-nav-link')) { showBlogView(); return; }
+                    if (link.id === 'home-link-logo') { window.location.hash = ''; showView('home-view'); return; }
+                    showView('home-view');
+                    setTimeout(() => { const targetElement = document.querySelector(href); if (targetElement) targetElement.scrollIntoView({ behavior: 'smooth' }); }, 50);
+                });
             });
-
-            document.getElementById('mobile-menu-button').addEventListener('click', () => {
-                document.getElementById('mobile-menu').classList.toggle('hidden');
-            });
-            
+            document.getElementById('view-all-posts-btn').addEventListener('click', showBlogView);
+            document.getElementById('mobile-menu-button').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
             const cookieBanner = document.getElementById('cookie-banner');
             const acceptCookiesButton = document.getElementById('accept-cookies');
             if (!localStorage.getItem('cookiesAccepted')) cookieBanner.style.display = 'flex';
-            acceptCookiesButton.addEventListener('click', () => {
-                cookieBanner.style.display = 'none';
-                localStorage.setItem('cookiesAccepted', 'true');
-            });
+            acceptCookiesButton.addEventListener('click', () => { cookieBanner.style.display = 'none'; localStorage.setItem('cookiesAccepted', 'true'); });
             
-            loadData();
-            renderAll();
+            loadAndSyncData();
             handleRouting();
-        });
+        }
+
+        function displayFirebaseError(error) {
+            let userMessage;
+            if (error.code === 'unavailable') {
+                userMessage = `
+                    <h2 class="text-2xl font-bold text-red-700 mb-4 font-heading">Erro de Conexão com o Banco de Dados</h2>
+                    <p class="text-gray-700 mb-4">Não foi possível conectar ao Firebase. Isso geralmente significa que o serviço Cloud Firestore não está ativado no seu projeto.</p>
+                    <p class="text-gray-700 mb-2"><strong>Ação necessária:</strong></p>
+                    <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                        <li>Acesse o <a href="https://firebase.google.com/" target="_blank" class="text-blue-600 hover:underline">console do Firebase</a> e abra seu projeto.</li>
+                        <li>No menu à esquerda, vá para <strong>Cloud Firestore</strong>.</li>
+                        <li>Clique em <strong>"Criar banco de dados"</strong> e siga os passos para ativá-lo (pode escolher o modo de produção).</li>
+                    </ol>
+                    <p class="mt-4 text-sm text-gray-500">Se o problema persistir, verifique suas regras de segurança do Firestore. Detalhe do erro: ${error.message}</p>
+                `;
+            } else {
+                 userMessage = `
+                    <h2 class="text-2xl font-bold text-red-700 mb-4 font-heading">Erro de Configuração do Firebase</h2>
+                    <p class="text-gray-700 mb-6">As chaves de configuração do Firebase no código parecem estar incorretas ou incompletas. Por favor, verifique se você copiou e colou o objeto \`firebaseConfig\` corretamente.</p>
+                    <p class="mt-4 text-sm text-gray-500">Detalhe do erro: ${error.message}</p>
+                 `;
+            }
+            document.body.innerHTML = `<div class="min-h-screen flex items-center justify-center bg-red-100 p-6"><div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-2xl border-l-4 border-red-500">${userMessage}</div></div>`;
+        }
+
+        try {
+            const app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            initializeAppLogic();
+        } catch(e) {
+            console.error("Erro fatal ao inicializar o Firebase.", e);
+            displayFirebaseError(e);
+        }
     </script>
 </body>
 </html>
